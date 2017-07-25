@@ -1,0 +1,17 @@
+{
+    "name": "jaime/autoload-proof",
+    "description": "A little package to test auloader with RabbitMQ connection",
+    "type": "library",
+    "require": {
+        "php-amqplib/php-amqplib": "^2.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "authors": [
+        {
+            "name": "José Jaime Ramírez Calvo",
+            "email": "mr.ljaime@gmail.com"
+        }
+    ]
+}
