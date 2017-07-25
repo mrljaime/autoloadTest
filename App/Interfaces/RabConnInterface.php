@@ -8,7 +8,6 @@
 
 namespace App\Interfaces;
 
-
 interface RabConnInterface
 {
     /**
@@ -17,13 +16,8 @@ interface RabConnInterface
      *
      * Just to start connection on RabbitMQ
      *
-     * @param $host
-     * @param $port
-     * @param $user
-     * @param $pass
-     * @param $vhost
      */
-    public function __construct($host, $port, $user, $pass, $vhost);
+    public function __construct();
 
 
     /**

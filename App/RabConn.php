@@ -20,15 +20,17 @@ class RabConn implements RabConnInterface
      *
      * Just to start connection on RabbitMQ
      *
-     * @param $host
-     * @param $port
-     * @param $user
-     * @param $pass
-     * @param $vhost
      */
-    public function __construct($host, $port, $user, $pass, $vhost)
+    public function __construct()
     {
-        $this->amqpStreamConnection = new AMQPStreamConnection($host, $port, $user, $pass, $vhost);
+        $config = Config::getConfig();
+        $this->amqpStreamConnection = new AMQPStreamConnection(
+            $config->host,
+            $config->port,
+            $config->username,
+            $config->password,
+            $config->vhost);
+
         $this->channel = $this->amqpStreamConnection->channel();
     }
 

@@ -6,7 +6,26 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 use App\RabConn;
 
-$rabConn = new RabConn("localhost", 5672, "guest", "guest", "/");
-$rabConn->queue()->sendMessage("{\"from\": 1, \"to\": 2}");
+/**
+ * Set dir config
+ */
+$rabConn = new RabConn();
+
+$start = microtime(true);
+for ($i = 1; $i <= 1000; $i++) {
+    $rabConn->queue()->sendMessage("{\"from\": 1, \"to\": $i}");
+    if ($i == 1000) {
+        echo "\n-------------\n";
+        echo "On 1000 message";
+        echo "\n-------------\n";
+    }
+}
+
+$end = microtime(true);
+
+echo "\n-------------\n";
+echo sprintf("I send 1000 message on %s", ($end - $start));
+echo "\n-------------\n";
+
 
 $rabConn->disconnect();
